@@ -13,6 +13,7 @@ import Tarif from "./pages/Tarif";
 import Auftrag from "./pages/Auftrag";
 import Uebermittelt from "./pages/Uebermittelt";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { CookieBar } from "./components/CookieBar";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/uebermittelt" element={<Uebermittelt />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieBar />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
