@@ -21,6 +21,9 @@ const OVERRIDES: Record<string, Record<string, string>> = {
   "Jahresrechnung prüfen": {
     en: "Check annual utility bill", tr: "Yıllık faturayı kontrol et", ru: "Проверить годовой счёт", ar: "تحقق من الفاتورة السنوية", it: "Verifica bolletta annuale", zh: "检查年度账单", hi: "वार्षिक बिल जांचें", es: "Revisar factura anual", fr: "Vérifier la facture annuelle", nl: "Controleer jaarafrekening", pl: "Sprawdź rachunek roczny"
   },
+  "Jahresabrechnung prüfen": {
+    en: "Check energy bill", tr: "Enerji faturasını kontrol et", ru: "Проверить счёт за энергию", ar: "تحقق من فاتورة الطاقة", it: "Verifica la bolletta energetica", zh: "检查能源账单", hi: "ऊर्जा बिल जांचें", es: "Revisar factura de energía", fr: "Vérifier la facture d'énergie", nl: "Controleer energierekening", pl: "Sprawdź rachunek za energię"
+  },
   "So einfach funktioniert's": {
     en: "How it works", tr: "Nasıl çalışır", ru: "Как это работает", ar: "كيف يعمل", it: "Come funziona", zh: "如何运作", hi: "यह कैसे काम करता है", es: "Cómo funciona", fr: "Comment ça marche", nl: "Zo werkt het", pl: "Jak to działa"
   },
@@ -31,11 +34,15 @@ const OVERRIDES: Record<string, Record<string, string>> = {
 
 const QUALITY_REPLACEMENTS: Record<string, Array<[RegExp, string]>> = {
   en: [
-    [/annual financial statements/gi, "annual utility bills"],
+    [/annual financial statements/gi, "energy bills"],
+    [/financial statements/gi, "energy bills"],
+    [/annual statement/gi, "energy bill"],
+    [/annual bill/gi, "energy bill"],
     [/basic supply/gi, "default utility tariff"],
     [/discount tricks/gi, "bonus-driven teaser offers"],
     [/energy assistant/gi, "Energy Assistant"],
-    [/utility settlement/gi, "annual utility bill"],
+    [/utility settlement/gi, "energy bill"],
+    [/electric current/gi, "electricity"],
   ],
   tr: [[/temel tedarik/gi, "standart tarife"]],
   ru: [[/базов[а-я ]+снабжен[а-я ]+/gi, "тариф поставщика по умолчанию"]],

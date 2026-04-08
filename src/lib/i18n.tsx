@@ -25,7 +25,7 @@ const RTL_LANGS = new Set(["ar"]);
 const dictionaries: Record<LangCode, Dictionary> = {
   de: {
     cta_check_savings: "Jetzt Ersparnis prüfen",
-    header_check_bill: "Jahresrechnung prüfen",
+    header_check_bill: "Energieabrechnung prüfen",
     header_check_savings: "Tarifersparnis prüfen",
     footer_contact: "Kontakt",
     footer_callback: "Rückruf anfordern",
@@ -43,7 +43,7 @@ const dictionaries: Record<LangCode, Dictionary> = {
     callback_title: "Rückruf anfordern",
   },
   en: {
-    cta_check_savings: "Check savings now", header_check_bill: "Check annual bill", header_check_savings: "Check tariff savings", footer_contact: "Contact", footer_callback: "Request callback", footer_legal: "Legal", footer_privacy: "Privacy", footer_imprint: "Imprint", footer_rights: "All rights reserved.", cookie_title: "Privacy settings", cookie_copy_1: "We use essential cookies for operation and optional marketing cookies only with your consent.", cookie_copy_2: "You can change your choices at any time. By default, only essential cookies are active.", cookie_marketing: "Marketing", cookie_essential: "Essential", cookie_save: "Save settings", cookie_accept_all: "Accept all", callback_title: "Request callback"
+    cta_check_savings: "Check savings now", header_check_bill: "Check energy bill", header_check_savings: "Check tariff savings", footer_contact: "Contact", footer_callback: "Request callback", footer_legal: "Legal", footer_privacy: "Privacy", footer_imprint: "Imprint", footer_rights: "All rights reserved.", cookie_title: "Privacy settings", cookie_copy_1: "We use essential cookies for operation and optional marketing cookies only with your consent.", cookie_copy_2: "You can change your choices at any time. By default, only essential cookies are active.", cookie_marketing: "Marketing", cookie_essential: "Essential", cookie_save: "Save settings", cookie_accept_all: "Accept all", callback_title: "Request callback"
   },
   tr: {
     cta_check_savings: "Şimdi tasarrufu kontrol et", header_check_bill: "Yıllık faturayı kontrol et", header_check_savings: "Tarife tasarrufunu kontrol et", footer_contact: "İletişim", footer_callback: "Geri arama talep et", footer_legal: "Yasal", footer_privacy: "Gizlilik", footer_imprint: "Künye", footer_rights: "Tüm hakları saklıdır.", cookie_title: "Gizlilik ayarları", cookie_copy_1: "Site için gerekli çerezleri ve yalnızca onayınızla isteğe bağlı pazarlama çerezlerini kullanıyoruz.", cookie_copy_2: "Seçimlerinizi istediğiniz zaman değiştirebilirsiniz. Varsayılan olarak yalnızca gerekli çerezler etkindir.", cookie_marketing: "Pazarlama", cookie_essential: "Gerekli", cookie_save: "Ayarları kaydet", cookie_accept_all: "Tümünü kabul et", callback_title: "Geri arama talep et"
@@ -97,11 +97,15 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     const valid = new Set(LANGUAGES.map((l) => l.code));
     const nextLang = (queryLang && valid.has(queryLang) ? queryLang : storedLang && valid.has(storedLang) ? storedLang : "de") as LangCode;
     setLangState(nextLang);
+    localStorage.setItem("kromen_lang", nextLang);
   }, [location.search]);
 
   const setLang = (code: LangCode) => {
     localStorage.setItem("kromen_lang", code);
-    setLangState(code);
+
+    const nextUrl = new URL(window.location.href);
+    nextUrl.searchParams.set("lang", code);
+    window.location.assign(nextUrl.toString());
   };
 
   useEffect(() => {
