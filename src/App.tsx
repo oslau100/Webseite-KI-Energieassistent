@@ -12,8 +12,10 @@ import Start from "./pages/Start";
 import Tarif from "./pages/Tarif";
 import Auftrag from "./pages/Auftrag";
 import Uebermittelt from "./pages/Uebermittelt";
+import RueckrufAnfordern from "./pages/RueckrufAnfordern";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
+import { I18nProvider } from "./lib/i18n";
 
 const queryClient = new QueryClient();
 
@@ -23,19 +25,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/jahresrechnung" element={<Jahresrechnung />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/start" element={<Start />} />
-          <Route path="/tarif" element={<Tarif />} />
-          <Route path="/auftrag" element={<Auftrag />} />
-          <Route path="/uebermittelt" element={<Uebermittelt />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <CookieBar />
+        <I18nProvider>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/jahresrechnung" element={<Jahresrechnung />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/start" element={<Start />} />
+            <Route path="/tarif" element={<Tarif />} />
+            <Route path="/auftrag" element={<Auftrag />} />
+            <Route path="/uebermittelt" element={<Uebermittelt />} />
+            <Route path="/rueckruf-anfordern" element={<RueckrufAnfordern />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <CookieBar />
+        </I18nProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
