@@ -20,6 +20,8 @@ type LangCode = (typeof LANGUAGES)[number]["code"];
 
 type Dictionary = Record<string, string>;
 
+const RTL_LANGS = new Set(["ar"]);
+
 const dictionaries: Record<LangCode, Dictionary> = {
   de: {
     cta_check_savings: "Jetzt Ersparnis prüfen",
@@ -101,6 +103,11 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("kromen_lang", code);
     setLangState(code);
   };
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGS.has(lang) ? "rtl" : "ltr";
+  }, [lang]);
 
   const value = useMemo<I18nContextValue>(() => ({
     lang,

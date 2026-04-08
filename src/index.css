@@ -85,3 +85,9 @@
     display: none !important;
   }
 }
+
+
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
