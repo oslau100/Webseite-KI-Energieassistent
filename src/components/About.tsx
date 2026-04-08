@@ -1,14 +1,14 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
+import { useI18n } from "@/lib/i18n";
 
 export const About = () => {
+  const { t } = useI18n();
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Wer steckt hinter <span className="text-primary">Kromen</span> Energieassistenten?
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">{t("home_about_h2")}</h2>
         </AnimatedSection>
 
         <AnimatedSection delay={200} className="bg-muted/30 rounded-3xl overflow-hidden shadow-sm max-w-6xl mx-auto">
