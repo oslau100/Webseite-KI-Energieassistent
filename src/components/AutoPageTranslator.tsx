@@ -11,6 +11,13 @@ const normalize = (value: string) =>
     .replace(/\s+([.,!?;:])/g, "$1")
     .trim();
 
+const splitEdgeWhitespace = (value: string) => {
+  const leading = value.match(/^\s*/)?.[0] ?? "";
+  const trailing = value.match(/\s*$/)?.[0] ?? "";
+  const core = value.slice(leading.length, value.length - trailing.length);
+  return { leading, core, trailing };
+};
+
 const isOnlyPunctuation = (value: string) =>
   /^[\p{P}\p{S}\s]+$/u.test(value);
 
@@ -95,7 +102,7 @@ const polishText = (input: string, lang: string) => {
 
 const translateText = async (text: string, targetLang: string) => {
   const cleanText = normalize(text);
-  if (!cleanText || targetLang === "de") return text;
+  if (!cleanText || targetLang === "de") return cleanText || text;
 
   const override = OVERRIDES[cleanText]?.[targetLang];
   if (override) return override;
@@ -173,8 +180,11 @@ export const AutoPageTranslator = () => {
         textNodes.map(async (node) => {
           const textNode = node as Text & { __orig?: string };
           if (!textNode.__orig) textNode.__orig = node.nodeValue ?? "";
-          const translated = await translateText(textNode.__orig, lang);
-          node.nodeValue = translated;
+          const { leading, core, trailing } = splitEdgeWhitespace(textNode.__orig);
+          if (!core) return;
+
+          const translated = await translateText(core, lang);
+          node.nodeValue = `${leading}${translated}${trailing}`;
         }),
       );
 
