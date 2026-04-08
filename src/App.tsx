@@ -16,6 +16,7 @@ import RueckrufAnfordern from "./pages/RueckrufAnfordern";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
+import { AutoPageTranslator } from "./components/AutoPageTranslator";
 
 const queryClient = new QueryClient();
 
@@ -27,12 +28,15 @@ const App = () => (
       <BrowserRouter>
         <I18nProvider>
           <ScrollToTop />
+          <AutoPageTranslator />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/jahresrechnung" element={<Jahresrechnung />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/start" element={<Start />} />
+            <Route path="/rechnungsprüfung" element={<Start />} />
+            <Route path="/rechnungspruefung" element={<Start />} />
             <Route path="/tarif" element={<Tarif />} />
             <Route path="/auftrag" element={<Auftrag />} />
             <Route path="/uebermittelt" element={<Uebermittelt />} />

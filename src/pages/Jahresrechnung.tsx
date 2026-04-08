@@ -7,8 +7,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { About } from "@/components/About";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { Link } from "react-router-dom";
+import { useI18n } from "@/lib/i18n";
 
 export default function Jahresrechnung() {
+  const { withLang } = useI18n();
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Header />

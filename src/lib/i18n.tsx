@@ -2,18 +2,18 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import { useLocation } from "react-router-dom";
 
 export const LANGUAGES = [
-  { code: "de", label: "Deutsch", flag: "🇩🇪" },
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "tr", label: "Türkçe", flag: "🇹🇷" },
-  { code: "ru", label: "Русский", flag: "🇷🇺" },
-  { code: "ar", label: "العربية", flag: "🇸🇦" },
-  { code: "it", label: "Italiano", flag: "🇮🇹" },
-  { code: "zh", label: "中文", flag: "🇨🇳" },
-  { code: "hi", label: "हिन्दी", flag: "🇮🇳" },
-  { code: "es", label: "Español", flag: "🇪🇸" },
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "nl", label: "Nederlands", flag: "🇳🇱" },
-  { code: "pl", label: "Polski", flag: "🇵🇱" },
+  { code: "de", label: "Deutsch", flagUrl: "https://flagcdn.com/w40/de.png" },
+  { code: "en", label: "English", flagUrl: "https://flagcdn.com/w40/gb.png" },
+  { code: "tr", label: "Türkçe", flagUrl: "https://flagcdn.com/w40/tr.png" },
+  { code: "ru", label: "Русский", flagUrl: "https://flagcdn.com/w40/ru.png" },
+  { code: "ar", label: "العربية", flagUrl: "https://flagcdn.com/w40/sa.png" },
+  { code: "it", label: "Italiano", flagUrl: "https://flagcdn.com/w40/it.png" },
+  { code: "zh", label: "中文", flagUrl: "https://flagcdn.com/w40/cn.png" },
+  { code: "hi", label: "हिन्दी", flagUrl: "https://flagcdn.com/w40/in.png" },
+  { code: "es", label: "Español", flagUrl: "https://flagcdn.com/w40/es.png" },
+  { code: "fr", label: "Français", flagUrl: "https://flagcdn.com/w40/fr.png" },
+  { code: "nl", label: "Nederlands", flagUrl: "https://flagcdn.com/w40/nl.png" },
+  { code: "pl", label: "Polski", flagUrl: "https://flagcdn.com/w40/pl.png" },
 ] as const;
 
 type LangCode = (typeof LANGUAGES)[number]["code"];
