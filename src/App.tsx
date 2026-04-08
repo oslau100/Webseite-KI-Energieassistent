@@ -16,7 +16,6 @@ import RueckrufAnfordern from "./pages/RueckrufAnfordern";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
-import { AutoPageTranslator } from "./components/AutoPageTranslator";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +27,6 @@ const App = () => (
       <BrowserRouter>
         <I18nProvider>
           <ScrollToTop />
-          <AutoPageTranslator />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/jahresrechnung" element={<Jahresrechnung />} />
