@@ -4,6 +4,8 @@ import { useI18n } from "@/lib/i18n";
 
 const EXCLUDED_PATHS = new Set(["/impressum", "/datenschutz"]);
 const cache = new Map<string, string>();
+const originalTextByNode = new WeakMap<Text, string>();
+const originalPlaceholderByElement = new WeakMap<HTMLElement, string>();
 
 const translateText = async (text: string, targetLang: string) => {
   const key = `${targetLang}:${text}`;
@@ -34,12 +36,13 @@ export const AutoPageTranslator = () => {
     if (!root) return;
 
     const textNodes: Text[] = [];
-    const placeholders: Array<{ element: HTMLElement; original: string }> = [];
+    const placeholders: HTMLElement[] = [];
 
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: (node) => {
         const text = node.nodeValue?.trim() ?? "";
         if (!text) return NodeFilter.FILTER_REJECT;
+
         const parent = node.parentElement;
         if (!parent) return NodeFilter.FILTER_REJECT;
         if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
@@ -48,43 +51,44 @@ export const AutoPageTranslator = () => {
       },
     });
 
-    while (walker.nextNode()) textNodes.push(walker.currentNode as Text);
+    while (walker.nextNode()) {
+      const textNode = walker.currentNode as Text;
+      textNodes.push(textNode);
+      if (!originalTextByNode.has(textNode)) {
+        originalTextByNode.set(textNode, textNode.nodeValue ?? "");
+      }
+    }
 
     root.querySelectorAll<HTMLElement>("input[placeholder], textarea[placeholder]").forEach((element) => {
-      const original = element.dataset.originalPlaceholder ?? element.getAttribute("placeholder") ?? "";
-      element.dataset.originalPlaceholder = original;
-      placeholders.push({ element, original });
+      placeholders.push(element);
+      if (!originalPlaceholderByElement.has(element)) {
+        originalPlaceholderByElement.set(element, element.getAttribute("placeholder") ?? "");
+      }
     });
 
     const run = async () => {
       if (lang === "de") {
         textNodes.forEach((node) => {
-          if (!node.parentElement) return;
-          const original = node.parentElement.dataset.originalText ?? node.nodeValue ?? "";
-          node.nodeValue = original;
+          node.nodeValue = originalTextByNode.get(node) ?? node.nodeValue ?? "";
         });
 
-        placeholders.forEach(({ element, original }) => {
-          element.setAttribute("placeholder", original);
+        placeholders.forEach((element) => {
+          element.setAttribute("placeholder", originalPlaceholderByElement.get(element) ?? "");
         });
         return;
       }
 
       await Promise.all(
         textNodes.map(async (node) => {
-          const parent = node.parentElement;
-          if (!parent) return;
-
-          const original = parent.dataset.originalText ?? node.nodeValue ?? "";
-          parent.dataset.originalText = original;
-
+          const original = originalTextByNode.get(node) ?? node.nodeValue ?? "";
           const translated = await translateText(original, lang);
           node.nodeValue = translated;
         }),
       );
 
       await Promise.all(
-        placeholders.map(async ({ element, original }) => {
+        placeholders.map(async (element) => {
+          const original = originalPlaceholderByElement.get(element) ?? "";
           const translated = await translateText(original, lang);
           element.setAttribute("placeholder", translated);
         }),

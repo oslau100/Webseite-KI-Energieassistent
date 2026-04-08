@@ -69,7 +69,7 @@ export const Header = () => {
               className="border-primary text-primary hover:bg-primary/5 inline-flex rounded-md font-semibold text-xs sm:text-sm h-8 sm:h-10 px-2 sm:px-4"
             >
               <Link to={isIndexPage ? withLang("/jahresrechnung") : withLang("/")}>
-                {isIndexPage ? t("header_check_bill") : t("header_check_savings")}
+                <span data-no-translate="true">{isIndexPage ? t("header_check_bill") : t("header_check_savings")}</span>
               </Link>
             </Button>
           )}
