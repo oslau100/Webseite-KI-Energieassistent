@@ -56,7 +56,11 @@ export const CookieBar = () => {
           <div className="flex flex-wrap items-center gap-8 rounded-xl bg-muted/50 p-4 mb-6">
             <div className="flex items-center gap-3">
               <span className="font-semibold">{t("cookie_marketing")}</span>
-              <Switch checked={marketingEnabled} onCheckedChange={setMarketingEnabled} aria-label={t("cookie_marketing")} />
+              <Switch
+                checked={marketingEnabled}
+                onCheckedChange={setMarketingEnabled}
+                aria-label={t("cookie_marketing")}
+              />
             </div>
             <div className="flex items-center gap-3">
               <span className="font-semibold">{t("cookie_essential")}</span>
