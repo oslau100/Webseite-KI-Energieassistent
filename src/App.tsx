@@ -28,17 +28,17 @@ const App = () => (
         <I18nProvider>
           <ScrollToTop />
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/jahresrechnung" element={<Jahresrechnung />} />
-          <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/start" element={<Start />} />
-          <Route path="/tarif" element={<Tarif />} />
-          <Route path="/auftrag" element={<Auftrag />} />
-          <Route path="/uebermittelt" element={<Uebermittelt />} />
+            <Route path="/" element={<Index />} />
+            <Route path="/jahresrechnung" element={<Jahresrechnung />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/start" element={<Start />} />
+            <Route path="/tarif" element={<Tarif />} />
+            <Route path="/auftrag" element={<Auftrag />} />
+            <Route path="/uebermittelt" element={<Uebermittelt />} />
             <Route path="/rueckruf-anfordern" element={<RueckrufAnfordern />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
           <CookieBar />
         </I18nProvider>
       </BrowserRouter>
