@@ -29,7 +29,7 @@ export const Header = () => {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
-                className="h-10 rounded-md px-3 gap-2 bg-background shadow-sm border-border hover:bg-muted/50"
+                className="h-10 rounded-md px-2 sm:px-3 gap-2 bg-background shadow-sm border-border hover:bg-muted/50 min-w-10"
               >
                 <img
                   src={selectedLanguage.flagUrl}
@@ -39,8 +39,8 @@ export const Header = () => {
                     (e.currentTarget as HTMLImageElement).style.display = "none";
                   }}
                 />
-                <span className="font-semibold uppercase text-sm">{selectedLanguage.code}</span>
-                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                <span className="hidden sm:inline font-semibold uppercase text-sm">{selectedLanguage.code}</span>
+                <ChevronDown className="hidden sm:inline h-4 w-4 text-muted-foreground" />
                 <span className="sr-only">Sprache wechseln</span>
               </Button>
             </DropdownMenuTrigger>

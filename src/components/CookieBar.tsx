@@ -1,79 +1,102 @@
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { useI18n } from "@/lib/i18n";
+import { Link } from "react-router-dom";
 
-const CONSENT_KEY = "kromen_cookie_consent_v1";
-
-type Consent = {
-  essential: true;
-  marketing: boolean;
-  updatedAt: string;
-};
+const CONSENT_KEY = "cookie-consent";
 
 export const CookieBar = () => {
-  const { t } = useI18n();
-  const [visible, setVisible] = useState(false);
-  const [marketingEnabled, setMarketingEnabled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [marketingAccepted, setMarketingAccepted] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (!stored) {
-      setVisible(true);
+    const consent = localStorage.getItem(CONSENT_KEY);
+    if (!consent) {
+      setIsVisible(true);
       return;
     }
 
-    try {
-      const parsed = JSON.parse(stored) as Consent;
-      setMarketingEnabled(Boolean(parsed.marketing));
-      setVisible(false);
-    } catch {
-      setVisible(true);
-    }
+    setMarketingAccepted(consent === "all");
   }, []);
 
-  const persist = (marketing: boolean) => {
-    const payload: Consent = {
-      essential: true,
-      marketing,
-      updatedAt: new Date().toISOString(),
-    };
-    localStorage.setItem(CONSENT_KEY, JSON.stringify(payload));
-    setMarketingEnabled(marketing);
-    setVisible(false);
+  const handleAcceptAll = () => {
+    localStorage.setItem(CONSENT_KEY, "all");
+    setIsVisible(false);
   };
 
-  if (!visible) return null;
+  const handleSaveSettings = () => {
+    localStorage.setItem(CONSENT_KEY, marketingAccepted ? "all" : "essential");
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[90] flex justify-center p-4">
-      <div className="w-full max-w-5xl max-h-[40vh] overflow-y-auto rounded-2xl border bg-background shadow-2xl">
-        <div className="p-6 md:p-8">
-          <h2 className="text-2xl font-bold mb-4">{t("cookie_title")}</h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">{t("cookie_copy_1")}</p>
-          <p className="text-muted-foreground leading-relaxed mb-6">{t("cookie_copy_2")}</p>
+    <div className="fixed inset-0 z-[100] bg-black/35 flex items-end sm:items-center justify-center p-3 sm:p-5">
+      <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[72vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100">
+        <div className="p-4 sm:p-6 overflow-y-auto">
+          <h2 className="text-lg sm:text-xl font-bold mb-3 text-slate-900">Privatsphäre-Einstellungen</h2>
 
-          <div className="flex flex-wrap items-center gap-8 rounded-xl bg-muted/50 p-4 mb-6">
+          <div className="space-y-3 text-sm leading-relaxed text-slate-700">
+            <p>
+              Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet{" "}
+              <span className="text-blue-600">Kromen Energieassistent</span> Cookies und ähnliche Technologien.
+            </p>
+
+            <p>
+              <strong>Essenzielle Cookies</strong> sind für die Funktion der Website notwendig und können nicht
+              deaktiviert werden. <strong>Marketing Cookies</strong> helfen uns, Inhalte und Angebote für Sie zu
+              verbessern.
+            </p>
+
+            <p className="text-xs text-slate-500">
+              Weitere Informationen finden Sie in der{" "}
+              <Link to="/datenschutz" className="text-blue-600 hover:underline">
+                Datenschutzerklärung
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-200 p-4 sm:p-6 bg-white">
+          <div className="bg-slate-50 rounded-xl px-4 py-3 flex flex-wrap items-center gap-5 mb-4 border border-slate-100">
             <div className="flex items-center gap-3">
-              <span className="font-semibold">{t("cookie_marketing")}</span>
+              <span className="font-semibold text-slate-900 text-sm">Marketing</span>
               <Switch
-                checked={marketingEnabled}
-                onCheckedChange={setMarketingEnabled}
-                aria-label={t("cookie_marketing")}
+                checked={marketingAccepted}
+                onCheckedChange={setMarketingAccepted}
+                className="data-[state=checked]:bg-[#008a4b]"
               />
             </div>
             <div className="flex items-center gap-3">
-              <span className="font-semibold">{t("cookie_essential")}</span>
-              <Switch checked disabled aria-label={t("cookie_essential")} />
+              <span className="font-semibold text-slate-900 text-sm">Essenziell</span>
+              <Switch checked={true} disabled className="data-[state=checked]:bg-[#99d1b7] disabled:opacity-100" />
             </div>
           </div>
 
+          <div className="flex gap-4 mb-4 text-xs text-slate-500">
+            <Link to="/datenschutz" className="hover:text-slate-800 transition-colors">
+              Datenschutzerklärung
+            </Link>
+            <Link to="/impressum" className="hover:text-slate-800 transition-colors">
+              Impressum
+            </Link>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button variant="outline" className="sm:flex-1" onClick={() => persist(false)}>
-              {t("cookie_save")}
+            <Button
+              variant="secondary"
+              className="w-full rounded-full py-5 text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-900"
+              onClick={handleSaveSettings}
+            >
+              Einstellungen speichern
             </Button>
-            <Button className="sm:flex-1" onClick={() => persist(true)}>
-              {t("cookie_accept_all")}
+            <Button
+              className="w-full rounded-full py-5 text-sm font-semibold bg-[#008a4b] hover:bg-[#007a40] text-white"
+              onClick={handleAcceptAll}
+            >
+              Alles akzeptieren
             </Button>
           </div>
         </div>
