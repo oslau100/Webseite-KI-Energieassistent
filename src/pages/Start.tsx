@@ -6,7 +6,7 @@ const Start = () => {
   const location = useLocation();
   const src = `/loaders/start.html${location.search || ""}`;
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [iframeHeight, setIframeHeight] = useState(900);
+  const [iframeHeight, setIframeHeight] = useState(0);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -21,7 +21,7 @@ const Start = () => {
           doc.documentElement?.scrollHeight || 0,
           doc.body?.scrollHeight || 0,
           doc.documentElement?.offsetHeight || 0,
-          700,
+          0,
         );
         setIframeHeight(next);
       } catch {
@@ -61,7 +61,7 @@ const Start = () => {
           title="Setting Survey Loader"
           src={src}
           scrolling="no"
-          style={{ height: `${iframeHeight}px` }}
+          style={{ height: iframeHeight > 0 ? `${iframeHeight}px` : "100vh" }}
           className="w-full border-0 overflow-hidden"
         />
       </main>
