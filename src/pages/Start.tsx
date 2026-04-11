@@ -13,19 +13,25 @@ const Start = () => {
     if (!iframe) return;
 
     let observer: ResizeObserver | null = null;
-    const updateHeight = () => {
+    const updateHeight = (shrink = false) => {
       try {
         const doc = iframe.contentDocument;
         if (!doc) return;
-        const previousHeight = iframe.style.height;
-        iframe.style.height = "1px";
+
+        let previousHeight = "";
+        if (shrink) {
+          previousHeight = iframe.style.height;
+          iframe.style.height = "1px";
+        }
+
         const next = Math.max(
           doc.documentElement?.scrollHeight || 0,
           doc.body?.scrollHeight || 0,
           doc.documentElement?.offsetHeight || 0,
           1,
         );
-        iframe.style.height = previousHeight;
+
+        if (shrink) iframe.style.height = previousHeight;
         setIframeHeight(Math.ceil(next));
       } catch {
         // ignore cross-frame access errors
@@ -33,11 +39,11 @@ const Start = () => {
     };
 
     const onLoad = () => {
-      updateHeight();
+      updateHeight(true);
       try {
         const doc = iframe.contentDocument;
         if (!doc) return;
-        observer = new ResizeObserver(updateHeight);
+        observer = new ResizeObserver(() => updateHeight(false));
         observer.observe(doc.documentElement);
         if (doc.body) observer.observe(doc.body);
       } catch {
@@ -47,11 +53,9 @@ const Start = () => {
 
     iframe.addEventListener("load", onLoad);
     onLoad();
-    const intervalId = window.setInterval(updateHeight, 500);
 
     return () => {
       iframe.removeEventListener("load", onLoad);
-      window.clearInterval(intervalId);
       observer?.disconnect();
     };
   }, [src]);
