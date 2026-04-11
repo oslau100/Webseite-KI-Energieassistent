@@ -25,44 +25,42 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
-          {!isLegalPage && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="h-10 rounded-md px-2 sm:px-3 gap-2 bg-background shadow-sm border-border hover:bg-muted/50 min-w-10"
-                >
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                className="h-10 rounded-md px-2 sm:px-3 gap-2 bg-background shadow-sm border-border hover:bg-muted/50 min-w-10"
+              >
+                <img
+                  src={selectedLanguage.flagUrl}
+                  alt={selectedLanguage.label}
+                  className="h-4 w-6 object-cover rounded-sm"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <span className="hidden sm:inline font-semibold uppercase text-sm">{selectedLanguage.code}</span>
+                <ChevronDown className="hidden sm:inline h-4 w-4 text-muted-foreground" />
+                <span className="sr-only">Sprache wechseln</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {LANGUAGES.map((language) => (
+                <DropdownMenuItem key={language.code} onClick={() => setLang(language.code)} className="gap-2">
                   <img
-                    src={selectedLanguage.flagUrl}
-                    alt={selectedLanguage.label}
+                    src={language.flagUrl}
+                    alt={language.label}
                     className="h-4 w-6 object-cover rounded-sm"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.display = "none";
                     }}
                   />
-                  <span className="hidden sm:inline font-semibold uppercase text-sm">{selectedLanguage.code}</span>
-                  <ChevronDown className="hidden sm:inline h-4 w-4 text-muted-foreground" />
-                  <span className="sr-only">Sprache wechseln</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {LANGUAGES.map((language) => (
-                  <DropdownMenuItem key={language.code} onClick={() => setLang(language.code)} className="gap-2">
-                    <img
-                      src={language.flagUrl}
-                      alt={language.label}
-                      className="h-4 w-6 object-cover rounded-sm"
-                      onError={(e) => {
-                        (e.currentTarget as HTMLImageElement).style.display = "none";
-                      }}
-                    />
-                    <span className="font-semibold uppercase text-xs">{language.code}</span>
-                    <span className="text-xs text-muted-foreground">{language.label}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
+                  <span className="font-semibold uppercase text-xs">{language.code}</span>
+                  <span className="text-xs text-muted-foreground">{language.label}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {!isLegalPage && (
             <Button

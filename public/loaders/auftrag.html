@@ -1,16 +1,16 @@
 <script>
 window.TB_BOOTSTRAP = {
-  locationId: "Ddc0DVM8MT67wmLP3wAA",
-  supabaseUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co",
-  supabaseKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im95bmhuaGtsZHZwb3Foc2ZpcndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0OTAwODksImV4cCI6MjA3NTA2NjA4OX0.9zYOwel585SOUAtVc4XkWhhJl4qldwX6oOhOH7L-eJ4",
-  settingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/setting-survey-engine.js",
-  closingEngineUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/engine-assets/closing-survey-engine.js",
-  settingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/setting-proxy",
-  closingProxyPath: "https://oynhnhkldvpoqhsfirwf.supabase.co/functions/v1/closing-proxy",
-  offerUrl: "https://kromen-energieassistent.de/tarif",
-  auftragUrl: "https://kromen-energieassistent.de/auftrag",
-  startUrl: "https://kromen-energieassistent.de/start",
-  avatarUrl: "https://oynhnhkldvpoqhsfirwf.supabase.co/storage/v1/object/public/TarifButler%20Specifics/setting-survey-avatar.png"
+  locationId: "{{ custom_values.location_id }}",
+  supabaseUrl: "{{ custom_values.supabase_url }}",
+  supabaseKey: "{{ custom_values.supabase_anon_key }}",
+  settingEngineUrl: "{{ custom_values.setting_engine_url }}",
+  closingEngineUrl: "{{ custom_values.closing_engine_url }}",
+  settingProxyPath: "{{ custom_values.setting_proxy_path }}",
+  closingProxyPath: "{{ custom_values.closing_proxy_path }}",
+  offerUrl: "{{ custom_values.offer_url }}",
+  auftragUrl: "{{ custom_values.auftrag_url }}",
+  startUrl: "{{ custom_values.start_url }}",
+  avatarUrl: "{{ custom_values.avatar_url }}"
 };
 </script>
 
