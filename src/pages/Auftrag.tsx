@@ -6,7 +6,7 @@ const Auftrag = () => {
   const location = useLocation();
   const src = `/loaders/auftrag.html${location.search || ""}`;
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [iframeHeight, setIframeHeight] = useState(0);
+  const [iframeHeight, setIframeHeight] = useState(1);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -17,13 +17,16 @@ const Auftrag = () => {
       try {
         const doc = iframe.contentDocument;
         if (!doc) return;
+        const previousHeight = iframe.style.height;
+        iframe.style.height = "1px";
         const next = Math.max(
           doc.documentElement?.scrollHeight || 0,
           doc.body?.scrollHeight || 0,
           doc.documentElement?.offsetHeight || 0,
-          0,
+          1,
         );
-        setIframeHeight(next);
+        iframe.style.height = previousHeight;
+        setIframeHeight(Math.ceil(next));
       } catch {
         // ignore cross-frame access errors
       }
@@ -55,13 +58,13 @@ const Auftrag = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
-      <main className="flex-grow p-2 sm:p-4">
+      <main className="p-2 sm:p-4">
         <iframe
           ref={iframeRef}
           title="Closing Survey Loader"
           src={src}
           scrolling="no"
-          style={{ height: iframeHeight > 0 ? `${iframeHeight}px` : "100vh" }}
+          style={{ height: `${iframeHeight}px` }}
           className="w-full border-0 overflow-hidden"
         />
       </main>
