@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
+import { useWebsiteConfig } from "./websiteConfig";
 
 export const LANGUAGES = [
   { code: "de", label: "Deutsch", flagUrl: "https://flagcdn.com/w40/de.png" },
@@ -621,6 +622,7 @@ const I18nContext = createContext<I18nContextValue | null>(null);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
+  const { content } = useWebsiteConfig();
   const [lang, setLangState] = useState<LangCode>("de");
 
   useEffect(() => {
@@ -646,21 +648,27 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     document.documentElement.dir = RTL_LANGS.has(lang) ? "rtl" : "ltr";
   }, [lang]);
 
-  const value = useMemo<I18nContextValue>(() => ({
-    lang,
-    setLang,
-    t: (key) =>
-      statusPageDictionaries[lang][key] ??
-      statusPageDictionaries.de[key] ??
-      annualFaqDictionaries[lang][key] ??
-      annualFaqDictionaries.de[key] ??
-      headlineDictionaries[lang][key] ??
-      headlineDictionaries.de[key] ??
-      dictionaries[lang][key] ??
-      dictionaries.de[key] ??
-      key,
-    withLang: (path) => `${path}${path.includes("?") ? "&" : "?"}lang=${lang}`,
-  }), [lang]);
+  const value = useMemo<I18nContextValue>(() => {
+    const i18nOverrides = (content.i18n || {}) as Record<string, Record<string, string>>;
+
+    return {
+      lang,
+      setLang,
+      t: (key) =>
+        i18nOverrides[key]?.[lang] ??
+        i18nOverrides[key]?.de ??
+        statusPageDictionaries[lang][key] ??
+        statusPageDictionaries.de[key] ??
+        annualFaqDictionaries[lang][key] ??
+        annualFaqDictionaries.de[key] ??
+        headlineDictionaries[lang][key] ??
+        headlineDictionaries.de[key] ??
+        dictionaries[lang][key] ??
+        dictionaries.de[key] ??
+        key,
+      withLang: (path) => `${path}${path.includes("?") ? "&" : "?"}lang=${lang}`,
+    };
+  }, [content, lang]);
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };
