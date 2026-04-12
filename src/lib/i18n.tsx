@@ -84,6 +84,118 @@ const dictionaries: Record<LangCode, Dictionary> = {
   },
 };
 
+
+const statusPageDictionaries: Record<LangCode, Dictionary> = {
+  de: {
+    status_success_title: "Dein Auftrag ist erfolgreich eingegangen.",
+    status_success_body: "Wir haben deinen Wechselauftrag erhalten. Der Anbieter prüft jetzt deine Angaben und sendet dir innerhalb der nächsten 14 Tage die offizielle Auftragsbestätigung per E-Mail oder Post.",
+    status_success_cta: "Zur Startseite",
+    status_error_title: "Die Tarifsuche war nicht erfolgreich. Bitte prüfe deine Angaben und starte die Suche erneut.",
+    status_error_cta: "Neue Tarifsuche starten",
+    status_invoice_error_title: "Die Übermittlung deiner Rechnung ist fehlgeschlagen. Bitte versuche es erneut.",
+    status_invoice_error_cta: "Erneut versuchen",
+  },
+  en: {
+    status_success_title: "Your order has been received successfully.",
+    status_success_body: "We have received your switch request. The provider will now review your details and send your official confirmation by email or post within the next 14 days.",
+    status_success_cta: "Back to home",
+    status_error_title: "The tariff search was not successful. Please check your details and start the search again.",
+    status_error_cta: "Start new tariff search",
+    status_invoice_error_title: "Submitting your invoice failed. Please try again.",
+    status_invoice_error_cta: "Try again",
+  },
+  tr: {
+    status_success_title: "Talebiniz başarıyla alındı.",
+    status_success_body: "Geçiş talebinizi aldık. Sağlayıcı şimdi bilgilerinizi kontrol edecek ve resmi onayı önümüzdeki 14 gün içinde e-posta veya posta ile gönderecek.",
+    status_success_cta: "Ana sayfaya dön",
+    status_error_title: "Tarife araması başarılı olmadı. Lütfen bilgilerinizi kontrol edip aramayı yeniden başlatın.",
+    status_error_cta: "Yeni tarife araması başlat",
+    status_invoice_error_title: "Faturanızı gönderme işlemi başarısız oldu. Lütfen tekrar deneyin.",
+    status_invoice_error_cta: "Tekrar dene",
+  },
+  ru: {
+    status_success_title: "Ваш заказ успешно получен.",
+    status_success_body: "Мы получили вашу заявку на смену тарифа. Поставщик проверит ваши данные и отправит официальное подтверждение по электронной почте или почтой в течение следующих 14 дней.",
+    status_success_cta: "На главную",
+    status_error_title: "Поиск тарифа не удался. Пожалуйста, проверьте данные и запустите поиск снова.",
+    status_error_cta: "Начать новый поиск тарифа",
+    status_invoice_error_title: "Не удалось отправить ваш счет. Пожалуйста, попробуйте еще раз.",
+    status_invoice_error_cta: "Попробовать снова",
+  },
+  ar: {
+    status_success_title: "تم استلام طلبك بنجاح.",
+    status_success_body: "لقد استلمنا طلب التحويل الخاص بك. سيقوم المزوّد الآن بمراجعة بياناتك وإرسال التأكيد الرسمي عبر البريد الإلكتروني أو البريد العادي خلال 14 يومًا القادمة.",
+    status_success_cta: "العودة إلى الرئيسية",
+    status_error_title: "لم تنجح عملية البحث عن التعرفة. يرجى التحقق من بياناتك وبدء البحث مرة أخرى.",
+    status_error_cta: "ابدأ بحثًا جديدًا عن التعرفة",
+    status_invoice_error_title: "فشلت عملية إرسال فاتورتك. يرجى المحاولة مرة أخرى.",
+    status_invoice_error_cta: "حاول مرة أخرى",
+  },
+  it: {
+    status_success_title: "Il tuo ordine è stato ricevuto con successo.",
+    status_success_body: "Abbiamo ricevuto la tua richiesta di cambio fornitore. Il provider ora verificherà i tuoi dati e invierà la conferma ufficiale via e-mail o posta entro i prossimi 14 giorni.",
+    status_success_cta: "Torna alla home",
+    status_error_title: "La ricerca tariffaria non è andata a buon fine. Controlla i tuoi dati e avvia nuovamente la ricerca.",
+    status_error_cta: "Avvia nuova ricerca tariffaria",
+    status_invoice_error_title: "L'invio della tua fattura non è riuscito. Riprova.",
+    status_invoice_error_cta: "Riprova",
+  },
+  zh: {
+    status_success_title: "您的订单已成功提交。",
+    status_success_body: "我们已收到您的切换申请。供应商将审核您的信息，并在接下来的 14 天内通过电子邮件或邮寄发送正式确认。",
+    status_success_cta: "返回首页",
+    status_error_title: "资费查询未成功。请检查您的信息后重新开始查询。",
+    status_error_cta: "重新开始资费查询",
+    status_invoice_error_title: "您的账单提交失败，请重试。",
+    status_invoice_error_cta: "重试",
+  },
+  hi: {
+    status_success_title: "आपका ऑर्डर सफलतापूर्वक प्राप्त हो गया है।",
+    status_success_body: "हमें आपका स्विच अनुरोध मिल गया है। प्रदाता अब आपकी जानकारी की जांच करेगा और अगले 14 दिनों में ईमेल या डाक से आधिकारिक पुष्टि भेजेगा।",
+    status_success_cta: "होम पेज पर जाएँ",
+    status_error_title: "टैरिफ खोज सफल नहीं हुई। कृपया अपनी जानकारी जांचें और खोज फिर से शुरू करें।",
+    status_error_cta: "नई टैरिफ खोज शुरू करें",
+    status_invoice_error_title: "आपका बिल सबमिट नहीं हो सका। कृपया फिर से प्रयास करें।",
+    status_invoice_error_cta: "फिर से प्रयास करें",
+  },
+  es: {
+    status_success_title: "Tu solicitud se ha recibido correctamente.",
+    status_success_body: "Hemos recibido tu solicitud de cambio. El proveedor revisará tus datos y enviará la confirmación oficial por correo electrónico o postal en los próximos 14 días.",
+    status_success_cta: "Volver al inicio",
+    status_error_title: "La búsqueda de tarifa no fue exitosa. Revisa tus datos e inicia la búsqueda de nuevo.",
+    status_error_cta: "Iniciar nueva búsqueda",
+    status_invoice_error_title: "No se pudo enviar tu factura. Inténtalo de nuevo.",
+    status_invoice_error_cta: "Intentar de nuevo",
+  },
+  fr: {
+    status_success_title: "Votre demande a bien été reçue.",
+    status_success_body: "Nous avons reçu votre demande de changement. Le fournisseur va maintenant vérifier vos informations et vous envoyer la confirmation officielle par e-mail ou courrier dans les 14 prochains jours.",
+    status_success_cta: "Retour à l'accueil",
+    status_error_title: "La recherche de tarif a échoué. Veuillez vérifier vos informations et relancer la recherche.",
+    status_error_cta: "Relancer la recherche",
+    status_invoice_error_title: "L'envoi de votre facture a échoué. Veuillez réessayer.",
+    status_invoice_error_cta: "Réessayer",
+  },
+  nl: {
+    status_success_title: "Je aanvraag is succesvol ontvangen.",
+    status_success_body: "We hebben je overstapaanvraag ontvangen. De aanbieder controleert nu je gegevens en stuurt binnen 14 dagen de officiële bevestiging per e-mail of post.",
+    status_success_cta: "Terug naar home",
+    status_error_title: "De tariefzoekopdracht is niet gelukt. Controleer je gegevens en start de zoekopdracht opnieuw.",
+    status_error_cta: "Nieuwe tariefzoekopdracht starten",
+    status_invoice_error_title: "Het versturen van je rekening is mislukt. Probeer het opnieuw.",
+    status_invoice_error_cta: "Opnieuw proberen",
+  },
+  pl: {
+    status_success_title: "Twoje zlecenie zostało pomyślnie przyjęte.",
+    status_success_body: "Otrzymaliśmy Twoją prośbę o zmianę taryfy. Dostawca sprawdzi teraz Twoje dane i wyśle oficjalne potwierdzenie e-mailem lub pocztą w ciągu najbliższych 14 dni.",
+    status_success_cta: "Wróć do strony głównej",
+    status_error_title: "Wyszukiwanie taryfy nie powiodło się. Sprawdź dane i uruchom wyszukiwanie ponownie.",
+    status_error_cta: "Rozpocznij nowe wyszukiwanie",
+    status_invoice_error_title: "Nie udało się przesłać Twojego rachunku. Spróbuj ponownie.",
+    status_invoice_error_cta: "Spróbuj ponownie",
+  },
+};
+
 const headlineDictionaries: Record<LangCode, Dictionary> = {
   de: {
     home_problem_h2: "Warum viele Haushalte unnötig hohe Strom- und Gaskosten haben",
@@ -514,6 +626,8 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
     lang,
     setLang,
     t: (key) =>
+      statusPageDictionaries[lang][key] ??
+      statusPageDictionaries.de[key] ??
       annualFaqDictionaries[lang][key] ??
       annualFaqDictionaries.de[key] ??
       headlineDictionaries[lang][key] ??
