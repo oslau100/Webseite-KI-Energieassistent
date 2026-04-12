@@ -20,6 +20,7 @@ import RueckrufAnfordern from "./pages/RueckrufAnfordern";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
 import { I18nProvider } from "./lib/i18n";
+import { WebsiteConfigProvider } from "./lib/websiteConfig";
 import { AutoPageTranslator } from "./components/AutoPageTranslator";
 
 const queryClient = new QueryClient();
@@ -30,7 +31,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <I18nProvider>
+        <WebsiteConfigProvider>
+          <I18nProvider>
           <ScrollToTop />
           <AutoPageTranslator />
           <Routes>
@@ -54,6 +56,7 @@ const App = () => (
           </Routes>
           <CookieBar />
         </I18nProvider>
+        </WebsiteConfigProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

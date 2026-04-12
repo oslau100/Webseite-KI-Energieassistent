@@ -1,14 +1,39 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { useWebsiteConfig } from "@/lib/websiteConfig";
 
 const Datenschutz = () => {
+  const { getText } = useWebsiteConfig();
+  const htmlOverride = getText("pages.datenschutz.html", "");
+  const legalVars = {
+    firma: getText("legal.variables.firma", "Energieassistent"),
+    inhaber: getText("legal.variables.inhaber", "Max Mustermann"),
+    strasse: getText("legal.variables.strasse", "Musterstraße 1"),
+    plz: getText("legal.variables.plz", "12345"),
+    ort: getText("legal.variables.ort", "Musterstadt"),
+    land: getText("legal.variables.land", "Deutschland"),
+    email: getText("legal.variables.email", "support@example.com"),
+  };
+
+  if (htmlOverride) {
+    return (
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary flex flex-col">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 pt-36 md:pt-48 pb-16 max-w-4xl">
+          <div dangerouslySetInnerHTML={{ __html: htmlOverride }} />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary flex flex-col">
       <Header />
       <main className="flex-1 container mx-auto px-4 pt-36 md:pt-48 pb-16 max-w-4xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-10 text-primary">Datenschutzerklärung</h1>
         <div className="space-y-8 text-lg leading-relaxed text-muted-foreground">
-          <section><h2 className="text-2xl font-semibold text-foreground mb-4">1. Verantwortlicher</h2><p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p><address className="not-italic mt-2 bg-muted/50 p-4 rounded-lg border border-border"><strong>Kromen Energieassistent</strong><br />Marcel Kromen<br />Kavenstr. 10<br />52072 Aachen<br /><a href="mailto:info@kromen-energieassistent.de" className="text-primary hover:underline">info@kromen-energieassistent.de</a></address></section>
+          <section><h2 className="text-2xl font-semibold text-foreground mb-4">1. Verantwortlicher</h2><p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p><address className="not-italic mt-2 bg-muted/50 p-4 rounded-lg border border-border"><strong>{legalVars.firma}</strong><br />{legalVars.inhaber}<br />{legalVars.strasse}<br />{legalVars.plz} {legalVars.ort}<br /><a href={`mailto:${legalVars.email}`} className="text-primary hover:underline">{legalVars.email}</a></address></section>
           <section><h2 className="text-2xl font-semibold text-foreground mb-4">2. Allgemeine Hinweise zur Datenverarbeitung</h2><p className="mb-2">Der Schutz deiner persönlichen Daten ist uns wichtig. Wir verarbeiten personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Bestimmungen (DSGVO, BDSG).</p><p>Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst.</p></section>
           <section><h2 className="text-2xl font-semibold text-foreground mb-4">3. Datenerfassung auf dieser Website</h2><h3 className="text-xl font-medium text-foreground mb-2 mt-4">a) Besuch der Website</h3><p className="mb-2">Beim Aufruf unserer Website werden automatisch folgende Daten erfasst:</p><ul className="list-disc pl-6 mb-4 space-y-1"><li>IP-Adresse (gekürzt/anonymisiert, sofern möglich)</li><li>Datum und Uhrzeit</li><li>Browsertyp und Version</li><li>Betriebssystem</li><li>Referrer-URL</li></ul><p className="mb-2">Diese Daten dienen der technischen Bereitstellung und Sicherheit der Website.</p><p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO</p></section>
           <section><h2 className="text-2xl font-semibold text-foreground mb-4">4. Hosting</h2><p className="mb-2">Unsere Website wird auf einem eigenen Server betrieben.</p><p>Dabei werden die oben genannten technischen Daten verarbeitet, um einen sicheren und stabilen Betrieb zu gewährleisten.</p></section>
