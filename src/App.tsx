@@ -11,7 +11,11 @@ import Impressum from "./pages/Impressum";
 import Start from "./pages/Start";
 import Tarif from "./pages/Tarif";
 import Auftrag from "./pages/Auftrag";
-import Uebermittelt from "./pages/Uebermittelt";
+import AuftragEingegangen from "./pages/AuftragEingegangen";
+import Fehler from "./pages/Fehler";
+import FehlerRechnung from "./pages/FehlerRechnung";
+import Rechnung from "./pages/Rechnung";
+import StartRechnung from "./pages/StartRechnung";
 import RueckrufAnfordern from "./pages/RueckrufAnfordern";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { CookieBar } from "./components/CookieBar";
@@ -39,7 +43,12 @@ const App = () => (
             <Route path="/rechnungspruefung" element={<Start />} />
             <Route path="/tarif" element={<Tarif />} />
             <Route path="/auftrag" element={<Auftrag />} />
-            <Route path="/uebermittelt" element={<Uebermittelt />} />
+            <Route path="/auftrag-eingegangen" element={<AuftragEingegangen />} />
+            <Route path="/uebermittelt" element={<AuftragEingegangen />} />
+            <Route path="/fehler" element={<Fehler />} />
+            <Route path="/fehler-rechnung" element={<FehlerRechnung />} />
+            <Route path="/rechnung" element={<Rechnung />} />
+            <Route path="/start-rechnung" element={<StartRechnung />} />
             <Route path="/rueckruf-anfordern" element={<RueckrufAnfordern />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
