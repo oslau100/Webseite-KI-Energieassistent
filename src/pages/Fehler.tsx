@@ -14,6 +14,9 @@ const Fehler = () => {
           <h1 className="mx-auto max-w-3xl text-3xl md:text-5xl font-bold leading-tight">
             {t("status_error_title")}
           </h1>
+          <p className="mx-auto max-w-3xl text-base md:text-xl text-foreground/90 leading-relaxed">
+            {t("status_error_body")}
+          </p>
           <Link
             to={withLang("/start")}
             className="inline-flex items-center justify-center rounded-full bg-primary px-10 py-3.5 text-base md:text-lg font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
