@@ -6,14 +6,14 @@ const Impressum = () => {
   const { getText } = useWebsiteConfig();
   const htmlOverride = getText("pages.impressum.html", "");
   const legalVars = {
-    firma: getText("legal.variables.firma", "Energieassistent"),
-    inhaber: getText("legal.variables.inhaber", "Max Mustermann"),
-    strasse: getText("legal.variables.strasse", "Musterstraße 1"),
-    plz: getText("legal.variables.plz", "12345"),
-    ort: getText("legal.variables.ort", "Musterstadt"),
+    firma: getText("legal.variables.firma", "Kromen Energieassistent"),
+    inhaber: getText("legal.variables.inhaber", "Marcel Kromen"),
+    strasse: getText("legal.variables.strasse", "Kavenstr. 10"),
+    plz: getText("legal.variables.plz", "52072"),
+    ort: getText("legal.variables.ort", "Aachen"),
     land: getText("legal.variables.land", "Deutschland"),
-    email: getText("legal.variables.email", "support@example.com"),
-    telefon: getText("legal.variables.telefon", "+49 000 000000"),
+    email: getText("legal.variables.email", "info@kromen-energieassistent.de"),
+    telefon: getText("legal.variables.telefon", "015214008825"),
     stand: getText("legal.variables.stand", "April 2026"),
   };
 

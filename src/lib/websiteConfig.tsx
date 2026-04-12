@@ -1,4 +1,9 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  customerDefaultWebsiteContentConfig,
+  customerDefaultWebsiteDesignConfig,
+  customerDefaultWebsiteLayoutConfig,
+} from "./customerDefaults";
 
 type JsonRecord = Record<string, unknown>;
 
@@ -15,54 +20,15 @@ const DEFAULT_SUPABASE_URL = "https://oynhnhkldvpoqhsfirwf.supabase.co";
 const DEFAULT_SUPABASE_ANON_KEY = "<SECRET>";
 
 export const defaultWebsiteDesignConfig: JsonRecord = {
-  colors: {
-    primary: "#16a34a",
-    text: "#0f172a",
-    mutedText: "#64748b",
-    background: "#ffffff",
-  },
-  radius: {
-    section: "2.5rem",
-  },
+  ...customerDefaultWebsiteDesignConfig,
 };
 
 export const defaultWebsiteLayoutConfig: JsonRecord = {
-  pages: {
-    home: {
-      sections: ["header", "hero", "problem", "solution", "how_it_works", "comparison", "testimonials", "about", "stats", "faq", "footer"],
-    },
-    annual: {
-      sections: ["header", "hero", "process", "why", "value", "comparison", "testimonials", "about", "stats", "faq", "final_cta", "footer"],
-    },
-  },
+  ...customerDefaultWebsiteLayoutConfig,
 };
 
 export const defaultWebsiteContentConfig: JsonRecord = {
-  brand: {
-    name: "Energieassistent",
-    contact_email: "support@example.com",
-  },
-  i18n: {},
-  sections: {
-    faq: {
-      home_items: [
-        {
-          question: "Wie funktioniert die Tarifprüfung genau?",
-          answer:
-            "Der Energieassistent analysiert deine Tarifdaten automatisiert und vergleicht sie mit passenden Angeboten in deiner Region.",
-        },
-        {
-          question: "Welche Aufgaben übernimmt der Energieassistent für mich?",
-          answer:
-            "Wir prüfen regelmäßig neue Optionen, erinnern an Fristen und unterstützen dich bei den nächsten sinnvollen Schritten.",
-        },
-        {
-          question: "Ist die Tarifprüfung wirklich kostenlos?",
-          answer: "Ja, die Prüfung deiner aktuellen Situation und die erste Empfehlung sind komplett kostenlos und unverbindlich.",
-        },
-      ],
-    },
-  },
+  ...customerDefaultWebsiteContentConfig,
 };
 
 const deepMerge = (base: JsonRecord, override: JsonRecord): JsonRecord => {

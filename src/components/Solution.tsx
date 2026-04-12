@@ -7,6 +7,7 @@ import { useWebsiteConfig } from "@/lib/websiteConfig";
 export const Solution = () => {
   const { t, withLang, lang } = useI18n();
   const { getText } = useWebsiteConfig();
+  const imageUrl = getText("sections.solution.image_url", "", lang);
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -24,7 +25,7 @@ export const Solution = () => {
               </div>
             </div>
             <div className="relative h-full min-h-[280px] md:min-h-[350px] lg:min-h-[500px] flex items-end justify-center lg:justify-end mt-8 md:mt-0">
-              <img src={getText("sections.solution.image_url", "https://vibe.filesafe.space/1774643086282323006/attachments/16dfcd59-56c7-4ab2-bc63-3f59be3c5387.png", lang)} alt={getText("sections.solution.image_alt", "Energieassistent", lang)} className="relative z-10 w-full max-w-[500px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[1000px] h-auto object-contain object-bottom drop-shadow-2xl translate-y-12 md:translate-y-8 lg:translate-y-12 lg:-mr-12 scale-[1.75] md:scale-125 lg:scale-150 origin-bottom" />
+              {imageUrl ? <img src={imageUrl} alt={getText("sections.solution.image_alt", "Energieassistent", lang)} className="relative z-10 w-full max-w-[500px] md:max-w-[650px] lg:max-w-[850px] xl:max-w-[1000px] h-auto object-contain object-bottom drop-shadow-2xl translate-y-12 md:translate-y-8 lg:translate-y-12 lg:-mr-12 scale-[1.75] md:scale-125 lg:scale-150 origin-bottom" /> : null}
             </div>
           </div>
         </AnimatedSection>
