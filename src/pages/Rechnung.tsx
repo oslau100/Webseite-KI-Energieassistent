@@ -1,0 +1,10 @@
+import { SimpleFooter } from "@/components/SimpleFooter";
+
+const Rechnung = () => (
+  <div className="min-h-screen flex flex-col bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary">
+    <main className="flex-grow p-2 sm:p-4" />
+    <SimpleFooter />
+  </div>
+);
+
+export default Rechnung;
