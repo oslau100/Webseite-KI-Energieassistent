@@ -17,10 +17,10 @@ export const customerDefaultWebsiteDesignConfig: JsonRecord = {
     section: "2.5rem",
   },
   assets: {
-    logo_header: "",
-    logo_footer: "",
-    hero_image: "",
-    agency_logo: "",
+    logo_header: "https://vibe.filesafe.space/1774643086282323006/attachments/e9aa516d-6891-4336-a8a2-49e0e6e79579.png",
+    logo_footer: "https://vibe.filesafe.space/1774643086282323006/attachments/2e3ecdff-f542-4634-89f0-2179d8141a83.png",
+    hero_image: "https://vibe.filesafe.space/1774643086282323006/attachments/a00ebdfb-5bde-454f-921f-abeedbbb3c22.png",
+    agency_logo: "https://vibe.filesafe.space/1774643086282323006/attachments/a629d547-6056-4079-8549-0a910a7eafbd.png",
   },
 };
 
@@ -61,14 +61,13 @@ export const customerDefaultWebsiteContentConfig: JsonRecord = {
       image_alt: "Energieassistent",
     },
     solution: {
-      // Absichtlich leer, damit kein Marcel-Fallbackbild mehr gezeigt wird
-      image_url: "",
+      image_url: "https://vibe.filesafe.space/1774643086282323006/attachments/16dfcd59-56c7-4ab2-bc63-3f59be3c5387.png",
       image_alt: "Energieassistent",
       body: "Du musst den Tarifmarkt nicht selbst verstehen oder vergleichen. Dein digitaler Energieassistent übernimmt das für dich.",
       result_note: "Ergebnis in 60 Sekunden - 100% kostenlos",
     },
     about: {
-      avatar_url: "",
+      avatar_url: "https://vibe.filesafe.space/1774643086282323006/attachments/c0d6a4ae-c0f8-414e-83a4-712227fc30fb.png",
       person_name: "Marcel Kromen",
       role: "Experte für Strom & Gas",
       social_hint: "Folge mir auf den Sozialen Medien für Tipps rund um Strom & Gas",
