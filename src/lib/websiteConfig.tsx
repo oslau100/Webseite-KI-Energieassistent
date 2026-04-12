@@ -179,11 +179,16 @@ export const WebsiteConfigProvider = ({ children }: { children: ReactNode }) => 
     getText: (path, fallback, lang) => {
       const raw = getByPath(state.content, path);
       if (typeof raw === "string") return raw;
-      if (raw && typeof raw === "object" && lang) {
-        const localized = (raw as JsonRecord)[lang];
-        if (typeof localized === "string") return localized;
+      if (raw && typeof raw === "object") {
+        if (lang) {
+          const localized = (raw as JsonRecord)[lang];
+          if (typeof localized === "string") return localized;
+        }
         const de = (raw as JsonRecord).de;
         if (typeof de === "string") return de;
+        for (const v of Object.values(raw as JsonRecord)) {
+          if (typeof v === "string") return v;
+        }
       }
       return fallback;
     },
