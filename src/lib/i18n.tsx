@@ -228,7 +228,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "So einfach funktioniert's",
     home_comparison_h2: "So unterscheidet sich der digitale Energieassistent von Vergleichsportalen",
     home_testimonials_h2: "Über 2000 Haushalte nutzen bereits den digitalen Energieassistenten",
-    home_about_h2: "Wer steckt hinter Kromen Energieassistenten?",
+    home_about_h2: "Wer steckt hinter dem Energieassistenten?",
     home_faq_h2: "Häufige Fragen",
     home_final_cta_h2: "Jetzt Ersparnis prüfen",
     annual_hero_h1: "Wurde deine Strom- oder Gasabrechnung falsch berechnet?",
@@ -246,7 +246,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "It's that simple",
     home_comparison_h2: "How the digital Energy Assistant differs from comparison portals",
     home_testimonials_h2: "Over 2,000 households already use the digital Energy Assistant",
-    home_about_h2: "Who is behind Kromen Energy Assistant?",
+    home_about_h2: "Who is behind Energy Assistant?",
     home_faq_h2: "Frequently asked questions",
     home_final_cta_h2: "Check savings now",
     annual_hero_h1: "Was your electricity or gas bill calculated incorrectly?",
@@ -264,7 +264,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "İşte bu kadar basit",
     home_comparison_h2: "Dijital Enerji Asistanı karşılaştırma portallarından nasıl ayrılır",
     home_testimonials_h2: "2.000'den fazla hane dijital Enerji Asistanını şimdiden kullanıyor",
-    home_about_h2: "Kromen Enerji Asistanı'nın arkasında kim var?",
+    home_about_h2: "Enerji Asistanı'nın arkasında kim var?",
     home_faq_h2: "Sık sorulan sorular",
     home_final_cta_h2: "Tasarrufu şimdi kontrol et",
     annual_hero_h1: "Elektrik veya gaz faturanız yanlış mı hesaplandı?",
@@ -282,7 +282,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "Это работает очень просто",
     home_comparison_h2: "Чем цифровой Энергоассистент отличается от сайтов сравнения",
     home_testimonials_h2: "Более 2 000 домохозяйств уже пользуются цифровым Энергоассистентом",
-    home_about_h2: "Кто стоит за Kromen Energy Assistant?",
+    home_about_h2: "Кто стоит за Energy Assistant?",
     home_faq_h2: "Частые вопросы",
     home_final_cta_h2: "Проверить экономию",
     annual_hero_h1: "Ваш счёт за электричество или газ рассчитан неверно?",
@@ -300,7 +300,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "هكذا تعمل الخدمة ببساطة",
     home_comparison_h2: "كيف يختلف مساعد الطاقة الرقمي عن مواقع المقارنة",
     home_testimonials_h2: "أكثر من 2,000 أسرة تستخدم بالفعل مساعد الطاقة الرقمي",
-    home_about_h2: "من يقف وراء Kromen Energy Assistant؟",
+    home_about_h2: "من يقف وراء Energy Assistant؟",
     home_faq_h2: "الأسئلة الشائعة",
     home_final_cta_h2: "تحقق من التوفير الآن",
     annual_hero_h1: "هل تم احتساب فاتورة الكهرباء أو الغاز لديك بشكل خاطئ؟",
@@ -318,7 +318,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "Funziona in modo semplicissimo",
     home_comparison_h2: "Ecco come l'Assistente Energia digitale si distingue dai portali di confronto",
     home_testimonials_h2: "Oltre 2.000 famiglie usano già l'Assistente Energia digitale",
-    home_about_h2: "Chi c'è dietro Kromen Energy Assistant?",
+    home_about_h2: "Chi c'è dietro Energy Assistant?",
     home_faq_h2: "Domande frequenti",
     home_final_cta_h2: "Verifica ora il risparmio",
     annual_hero_h1: "La tua bolletta di luce o gas è stata calcolata in modo errato?",
@@ -336,7 +336,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "流程就是这么简单",
     home_comparison_h2: "数字能源助手与比价平台有何不同",
     home_testimonials_h2: "已有超过 2,000 个家庭在使用数字能源助手",
-    home_about_h2: "Kromen Energy Assistant 背后是谁？",
+    home_about_h2: "Energy Assistant 背后是谁？",
     home_faq_h2: "常见问题",
     home_final_cta_h2: "立即检查节省",
     annual_hero_h1: "你的电费或燃气费账单是否被错误计算？",
@@ -354,7 +354,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "यह इतना आसान है",
     home_comparison_h2: "डिजिटल एनर्जी असिस्टेंट तुलना पोर्टल्स से कैसे अलग है",
     home_testimonials_h2: "2,000 से अधिक परिवार पहले से डिजिटल एनर्जी असिस्टेंट का उपयोग कर रहे हैं",
-    home_about_h2: "Kromen Energy Assistant के पीछे कौन है?",
+    home_about_h2: "Energy Assistant के पीछे कौन है?",
     home_faq_h2: "अक्सर पूछे जाने वाले सवाल",
     home_final_cta_h2: "अभी बचत जांचें",
     annual_hero_h1: "क्या आपकी बिजली या गैस बिलिंग गलत तरीके से हुई है?",
@@ -372,7 +372,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "Así de simple funciona",
     home_comparison_h2: "Así se diferencia el Asistente Energético digital de los comparadores",
     home_testimonials_h2: "Más de 2.000 hogares ya usan el Asistente Energético digital",
-    home_about_h2: "¿Quién está detrás de Kromen Energy Assistant?",
+    home_about_h2: "¿Quién está detrás de Energy Assistant?",
     home_faq_h2: "Preguntas frecuentes",
     home_final_cta_h2: "Comprobar ahorro ahora",
     annual_hero_h1: "¿Se calculó mal tu factura de luz o gas?",
@@ -390,7 +390,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "C'est aussi simple que ça",
     home_comparison_h2: "En quoi l'Assistant Énergie numérique se distingue des comparateurs",
     home_testimonials_h2: "Plus de 2 000 foyers utilisent déjà l'Assistant Énergie numérique",
-    home_about_h2: "Qui se cache derrière Kromen Energy Assistant ?",
+    home_about_h2: "Qui se cache derrière Energy Assistant ?",
     home_faq_h2: "Questions fréquentes",
     home_final_cta_h2: "Vérifier les économies maintenant",
     annual_hero_h1: "Votre facture d'électricité ou de gaz a-t-elle été mal calculée ?",
@@ -408,7 +408,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "Zo eenvoudig werkt het",
     home_comparison_h2: "Zo onderscheidt de digitale Energieassistent zich van vergelijkingssites",
     home_testimonials_h2: "Meer dan 2.000 huishoudens gebruiken de digitale Energieassistent al",
-    home_about_h2: "Wie zit er achter Kromen Energy Assistant?",
+    home_about_h2: "Wie zit er achter Energy Assistant?",
     home_faq_h2: "Veelgestelde vragen",
     home_final_cta_h2: "Controleer nu je besparing",
     annual_hero_h1: "Is je stroom- of gasrekening verkeerd berekend?",
@@ -426,7 +426,7 @@ const headlineDictionaries: Record<LangCode, Dictionary> = {
     home_how_it_works_h2: "To działa naprawdę prosto",
     home_comparison_h2: "Tak cyfrowy Asystent Energii różni się od porównywarek ofert",
     home_testimonials_h2: "Ponad 2 000 gospodarstw domowych już korzysta z cyfrowego Asystenta Energii",
-    home_about_h2: "Kto stoi za Kromen Energy Assistant?",
+    home_about_h2: "Kto stoi za Energy Assistant?",
     home_faq_h2: "Najczęstsze pytania",
     home_final_cta_h2: "Sprawdź oszczędność teraz",
     annual_hero_h1: "Czy Twój rachunek za prąd lub gaz został błędnie naliczony?",
@@ -628,15 +628,17 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const queryLang = params.get("lang") as LangCode | null;
-    const storedLang = localStorage.getItem("kromen_lang") as LangCode | null;
+    const storedLang =
+      (localStorage.getItem("site_lang") as LangCode | null) ??
+      (localStorage.getItem("kromen_lang") as LangCode | null);
     const valid = new Set(LANGUAGES.map((l) => l.code));
     const nextLang = (queryLang && valid.has(queryLang) ? queryLang : storedLang && valid.has(storedLang) ? storedLang : "de") as LangCode;
     setLangState(nextLang);
-    localStorage.setItem("kromen_lang", nextLang);
+    localStorage.setItem("site_lang", nextLang);
   }, [location.search]);
 
   const setLang = (code: LangCode) => {
-    localStorage.setItem("kromen_lang", code);
+    localStorage.setItem("site_lang", code);
 
     const nextUrl = new URL(window.location.href);
     nextUrl.searchParams.set("lang", code);

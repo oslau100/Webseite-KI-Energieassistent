@@ -42,7 +42,7 @@ export const CookieBar = () => {
           <div className="space-y-3 text-sm leading-relaxed text-slate-700">
             <p>
               {getText("cookie.copy_intro", "Um Ihnen ein optimales Website-Erlebnis zu bieten, verwendet")}{" "}
-              <span className="text-blue-600">{getText("brand.name", "Kromen Energieassistent")}</span> {getText("cookie.copy_intro_suffix", "Cookies und ähnliche Technologien.")}
+              <span className="text-blue-600">{getText("brand.name", "Energieassistent")}</span> {getText("cookie.copy_intro_suffix", "Cookies und ähnliche Technologien.")}
             </p>
 
             <p>

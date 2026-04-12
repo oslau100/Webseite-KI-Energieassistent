@@ -13,15 +13,15 @@ export const Header = () => {
   const { getText, design } = useWebsiteConfig();
 
   const selectedLanguage = LANGUAGES.find((language) => language.code === lang) ?? LANGUAGES[0];
-  const logoUrl = ((design.assets as Record<string, string> | undefined)?.logo_header) || "https://vibe.filesafe.space/1774643086282323006/attachments/e9aa516d-6891-4336-a8a2-49e0e6e79579.png";
-  const logoAlt = getText("brand.name", "Kromen Energieassistent");
+  const logoUrl = ((design.assets as Record<string, string> | undefined)?.logo_header) || "";
+  const logoAlt = getText("brand.name", "Energieassistent");
 
   return (
     <header className="absolute top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 h-24 md:h-32 flex items-center justify-between">
         <div className="flex items-center">
           <Link to={withLang("/")}>
-            <img src={logoUrl} alt={logoAlt} className="h-20 md:h-28 w-auto" />
+            {logoUrl ? <img src={logoUrl} alt={logoAlt} className="h-20 md:h-28 w-auto" /> : <span className="font-semibold text-foreground">{logoAlt}</span>}
           </Link>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">

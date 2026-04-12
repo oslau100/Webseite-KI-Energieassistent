@@ -39,8 +39,8 @@ export const defaultWebsiteLayoutConfig: JsonRecord = {
 
 export const defaultWebsiteContentConfig: JsonRecord = {
   brand: {
-    name: "Kromen Energieassistent",
-    contact_email: "info@kromen-energieassistent.de",
+    name: "Energieassistent",
+    contact_email: "support@example.com",
   },
   i18n: {},
   sections: {
@@ -49,12 +49,12 @@ export const defaultWebsiteContentConfig: JsonRecord = {
         {
           question: "Wie funktioniert die Tarifprüfung genau?",
           answer:
-            "Der Energieassistent analysiert deine aktuellen Tarifdaten und vergleicht diese automatisch mit hunderten verfügbaren Angeboten auf dem Markt. Dabei werden Lockangebote und riskante Anbieter direkt herausgefiltert.",
+            "Der Energieassistent analysiert deine Tarifdaten automatisiert und vergleicht sie mit passenden Angeboten in deiner Region.",
         },
         {
           question: "Welche Aufgaben übernimmt der Energieassistent für mich?",
           answer:
-            "Wir überwachen deine Kündigungsfristen, prüfen regelmäßig den Markt auf bessere Angebote und übernehmen den kompletten Wechselprozess für dich, sobald ein neuer Tarif sinnvoll ist.",
+            "Wir prüfen regelmäßig neue Optionen, erinnern an Fristen und unterstützen dich bei den nächsten sinnvollen Schritten.",
         },
         {
           question: "Ist die Tarifprüfung wirklich kostenlos?",
